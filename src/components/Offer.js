@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Offer() {
   return (
-    <section className="offer">
+    <section className="offer || primary-bg page-block-padding">
         <h2>Services We Offer</h2>
-        <ul className="offer-cont">
+        <ul className="offer-cont || flex space-between page-inline-padding">
             <li className="offer-card">
                 <div className="top-icon">
                     

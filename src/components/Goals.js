@@ -5,11 +5,11 @@ import goals3 from '../images/goals3.png'
 
 export default function Goals() {
   return (
-    <section className="goals">
-        <h2>Choose Your Own Goals</h2>
-        <ul className="goals-cont">
+    <section className="goals || secondary-bg page-block-padding">
+        <h2 className='primary-header'>Choose Your Own Goals</h2>
+        <ul className="goals-cont || page-inline-padding flex space-between">
             <li>
-        3        <div className="goals-img-cont">
+                <div className="goals-img-cont">
                     <img src={goals1} alt="" className="goals-img" />
                 </div>
                 <div className="goals-description-cont">
