@@ -13,7 +13,7 @@ export default function Goals() {
                     <img src={goals1} alt="" className="goals-img" />
                 </div>
                 <div className="goals-description-cont">
-                    <h3>Strength</h3>
+                    <h3 className='acc-line'>Strength</h3>
                     <p>Lorem ipsum dolor sit amet consectetur </p>
                 </div>
             </li>
@@ -22,7 +22,7 @@ export default function Goals() {
                     <img src={goals2} alt="" className="goals-img" />
                 </div>
                 <div className="goals-description-cont">
-                    <h3>Endurance</h3>
+                    <h3 className='acc-line'>Endurance</h3>
                     <p>Lorem ipsum dolor sit amet consectetur </p>
                 </div>
             </li>
@@ -31,7 +31,7 @@ export default function Goals() {
                     <img src={goals3} alt="" className="goals-img" />
                 </div>
                 <div className="goals-description-cont">
-                    <h3>Flexibility</h3>
+                    <h3 className='acc-line'>Flexibility</h3>
                     <p>Lorem ipsum dolor sit amet consectetur </p>
                 </div>
             </li>

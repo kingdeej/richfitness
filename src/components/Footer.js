@@ -1,16 +1,21 @@
 import React from 'react'
+import facebook from '../images/icons/Facebook.png'
+import instagram from '../images/icons/Instagram.png'
+import pinterest from '../images/icons/Pinterest.png'
+import tumblr from '../images/icons/Tumblr.png'
+import whatsApp from '../images/icons/WhatsApp.png'
 
 export default function Footer() {
   return (
-    <footer>
-        <div className="logo-footer">RICH FITNESS</div>
-        <div className="footer-cont">   
+    <footer className='footer ||  page-block-padding'>
+        <div className="logo || page-inline-padding">RICH FITNESS</div>
+        <div className="footer-cont || page-inline-padding  space-between">   
             <div className="left-footer">
                 <h4>Contact</h4>
                 <ul className='contact'>
                     <li>
                         <label htmlFor="tel">Tel:</label>
-                        <p id='tel'>850-555-5555</p>
+                        <a href='tel:850-555-5555' id='tel'>850-555-5555</a>
                     </li>
                     <li>
                         <label htmlFor="email">Email:</label>
@@ -31,12 +36,12 @@ export default function Footer() {
             </div>
             <div className="right-footer">
                 <h4>Socials</h4>
-                <ul className="social-links">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                <ul className="social-links || flex">
+                    <li> <a href="#"><img src={tumblr} alt="tumblr" /></a></li>
+                    <li><a href="#"><img src={whatsApp} alt="whatsApp" /></a></li>
+                    <li><a href="#"><img src={facebook} alt="facebook" /></a></li>
+                    <li><a href="#"><img src={instagram} alt="instagram" /></a></li>
+                    <li><a href="#"><img src={pinterest} alt="pinterest" /></a></li>
                 </ul>
             </div>
         </div>
