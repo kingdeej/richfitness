@@ -2,8 +2,9 @@ import React from 'react'
 
 export default function Plans() {
   return (
-    <section className="plans">
-        <ul className="plans-cont">
+    <section className="plans || secondary-bg page-block-padding">
+        <h2 className="primary-header">Pick Out A Plan</h2>
+        <ul className="plans-cont || grid page-inline-padding">
             <li className="left-cont">
                 <div className="header">
                     <h3>${20}</h3><span>Per Month</span>
