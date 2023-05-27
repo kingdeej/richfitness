@@ -96,6 +96,9 @@ h4{
 }
 
 /*Utitlity Classes*/
+.hide{
+    display: block !important;
+}
 .primary-header{
     padding-bottom: 110px;
 }
@@ -192,6 +195,9 @@ h4{
 
 nav{
     padding-top: 30px;
+    .nav-icon-cont{
+        display: none;
+    }
     .nav-links{
         gap: 50px;
         .nav-link{
@@ -216,6 +222,83 @@ nav{
         .nav-links{
             display: none;
         }
+        .nav-icon-cont{
+            display: block;
+            position: relative;
+            width: 22px;
+            height: 18px;
+            
+            .nav-icon{
+                position: absolute;
+                top: 5px;
+                transform-origin: center;
+            }
+            // #nav-icon-1{
+            //     top: 0px;
+            // }
+            // #nav-icon-2{
+            //     bottom: 0px;
+            // }
+        }
+        .activate{
+            #nav-icon-1{
+                animation: move 1s;
+                rotate: 45deg;
+                // margin: 0;
+                @keyframes move {
+                    0%{
+                        rotate: 0deg;
+                    }
+                    100%{
+                        rotate: 45deg;
+                    }
+                }
+            }
+            #nav-icon-2{
+                rotate: -45deg;
+                animation: moves 1s;
+                // margin-left: 0;
+                // margin-bottom: 0;
+                @keyframes moves {
+                    0%{
+                        rotate: 0deg;
+                    }
+                    100%{
+                        rotate: -45deg;
+                    }
+                }
+            }
+        }
+        .deactivate{
+            #nav-icon-1{
+                animation: deactivate1 1s;
+                top: 0;
+                rotate: 0deg;
+                @keyframes deactivate1 {
+                    0%{
+                        rotate: 45deg;
+                    }
+                    100%{
+                        top: 0;
+                        rotate: 0deg;
+                    }
+                }
+            }
+            #nav-icon-2{
+                animation: deactivate2 1s;
+                rotate: 0deg;
+                @keyframes deactivate2 {
+                    0%{
+                        rotate: -45deg;
+                    }
+                    100%{
+                        rotate: 0deg;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
     }
 }
 
