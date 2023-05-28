@@ -16,7 +16,7 @@ export default function Plans() {
                 </div>
             </li>
             <li className="right-cont">
-                <h3 className='plan-header'>Choose a Plan</h3>
+                <h3 className='plan-header acc-line'>Choose a Plan</h3>
                 <ul className="plan-list-cont || plan-padding flex-direction-col space-between">
                     <li className="plan-item || space-between">
                         <p>Beginner</p>

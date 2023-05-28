@@ -52,6 +52,7 @@ li {
   font-size: var(--fs-600);
   font-weight: var(--fw-700);
   color: var(--light-color);
+  z-index: 6;
 }
 
 h1 {
@@ -148,6 +149,11 @@ h4 {
   align-items: center;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
 .primary-button {
   padding-inline: 30px;
   padding-block: 12px;
@@ -176,8 +182,10 @@ h4 {
 }
 
 .plan-padding {
-  padding-inline: max(15%, 20px);
+  max-width: 400px;
+  width: 80%;
   padding-block: 3rem;
+  margin: auto;
 }
 
 .plan-header {
@@ -235,10 +243,11 @@ nav .nav-links .nav-link:hover::after {
   transition: 250ms;
 }
 @media (max-width: 50em) {
-  nav .nav-links {
+  nav .nav-links-wrapper {
     display: none;
   }
   nav .nav-icon-cont {
+    z-index: 10;
     display: block;
     position: relative;
     width: 22px;
@@ -246,41 +255,46 @@ nav .nav-links .nav-link:hover::after {
   }
   nav .nav-icon-cont .nav-icon {
     position: absolute;
-    top: 5px;
     transform-origin: center;
   }
   nav .activate #nav-icon-1 {
-    animation: move 1s;
+    animation: move 250ms;
     rotate: 45deg;
+    top: 5px;
   }
   @keyframes move {
     0% {
       rotate: 0deg;
+      top: 0;
     }
     100% {
       rotate: 45deg;
+      top: 5px;
     }
   }
   nav .activate #nav-icon-2 {
     rotate: -45deg;
-    animation: moves 1s;
+    animation: moves 250ms;
+    bottom: 5px;
   }
   @keyframes moves {
     0% {
       rotate: 0deg;
+      bottom: 0;
     }
     100% {
       rotate: -45deg;
     }
   }
   nav .deactivate #nav-icon-1 {
-    animation: deactivate1 1s;
+    animation: deactivate1 250ms;
     top: 0;
     rotate: 0deg;
   }
   @keyframes deactivate1 {
     0% {
       rotate: 45deg;
+      top: 5px;
     }
     100% {
       top: 0;
@@ -288,23 +302,41 @@ nav .nav-links .nav-link:hover::after {
     }
   }
   nav .deactivate #nav-icon-2 {
-    animation: deactivate2 1s;
+    animation: deactivate2 250ms;
     rotate: 0deg;
+    bottom: 0;
   }
   @keyframes deactivate2 {
     0% {
       rotate: -45deg;
+      bottom: 5px;
     }
     100% {
       rotate: 0deg;
-      margin-bottom: 0;
+      bottom: 0;
     }
+  }
+  nav .nav-links {
+    position: absolute;
+    right: 0;
+    background-color: var(--primary-bg);
+    top: 0;
+    width: max(250px, 60vw);
+    height: 70vh;
+    z-index: 5;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
   }
 }
 
 .hero {
   background: conic-gradient(from 180deg at 50% 50%, #121126 -76.88deg, #190840 73.13deg, #121126 283.13deg, #190840 433.12deg);
-  height: 100svh;
+  height: 110svh;
+  position: relative;
 }
 .hero .hero-wrapper {
   height: 80%;
@@ -326,7 +358,7 @@ nav .nav-links .nav-link:hover::after {
   position: absolute;
   inset: 0;
   margin: 100px auto;
-  max-width: 640px;
+  width: min(640px, 60vw);
   aspect-ratio: 1.42;
   margin-right: 0;
   background: var(--mid-color);
@@ -338,6 +370,11 @@ nav .nav-links .nav-link:hover::after {
   left: -30px;
   width: 100%;
   height: 100%;
+}
+@media (max-width: 50em) {
+  .hero .hero-wrapper .right-hero {
+    display: none;
+  }
 }
 .hero .hero-wrapper .hero-back-img {
   display: none;
@@ -354,6 +391,7 @@ nav .nav-links .nav-link:hover::after {
 .goals .goals-cont {
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
 }
 .goals .goals-cont li {
   background: var(--light-color);
@@ -413,6 +451,10 @@ nav .nav-links .nav-link:hover::after {
 }
 .plans .plans-cont li {
   background: var(--light-color);
+  border-radius: 10px;
+}
+.plans .plans-cont .left-cont {
+  overflow: hidden;
 }
 .plans .plans-cont .left-cont h4 {
   text-align: center;
@@ -444,6 +486,45 @@ nav .nav-links .nav-link:hover::after {
 }
 .plans .plans-cont .right-cont h3 {
   color: var(--dark-color);
+  width: 170px;
+  padding-bottom: 0;
+}
+@media (max-width: 50em) {
+  .plans .plans-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 450px;
+  }
+  .plans .plans-cont .right-cont {
+    grid-row: 1;
+  }
+  .plans .plans-cont .right-cont .plan-list-cont {
+    overflow: scroll;
+    flex-direction: row;
+    scroll-snap-align: 2;
+  }
+  .plans .plans-cont .right-cont .plan-list-cont .plan-item {
+    text-align: center;
+    padding-inline: 5%;
+    border-radius: 10px;
+    position: relative;
+  }
+  .plans .plans-cont .right-cont .plan-list-cont .plan-item p {
+    z-index: 2;
+    width: 100%;
+  }
+  .plans .plans-cont .right-cont .plan-list-cont .plan-item span {
+    background-color: var(--mid-color);
+    position: absolute;
+    margin: auto;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .plans .plans-cont .right-cont .plan-list-cont .plan-item .active {
+    background-color: var(--secondary-acc);
+  }
 }
 
 .footer {

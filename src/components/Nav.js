@@ -7,8 +7,9 @@ function Nav() {
   function toggle(){
     if (hide === 'hide') {
       setHide('')
-    }else{
-      setHide('') 
+    }
+    if(hide === ''){
+      setHide('hide') 
     }    
     if (active === 'deactivate') {
       setActive('activate')
@@ -26,12 +27,14 @@ function Nav() {
                 <img src={navIcon} id='nav-icon-1' className={`nav-icon ${hide}`} alt="nav-icon" />
                 <img src={navIcon} id='nav-icon-2' className={`nav-icon ${hide}`} alt="nav-icon" />
               </div>
-                <ul className={`nav-links || flex ${hide}`}>
+              <div className={`nav-links-wrapper ${hide}`}>
+                <ul className={`nav-links || flex`}>
                   <li><a href="#" className="nav-link">Programs</a></li>
                   <li><a href="#" className="nav-link">Pricing</a></li>
                   <li><a href="#" className="nav-link">Set Goals</a></li>
                   <li><a href="#" className="nav-link">About Us</a></li>
-                </ul>
+                </ul>       
+              </div>
             </div>
         </div>
     </nav>

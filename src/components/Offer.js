@@ -8,7 +8,7 @@ export default function Offer() {
   return (
     <section className="offer || primary-bg page-block-padding">
         <h2 className='primary-header'>Services We Offer</h2>
-        <ul className="offer-cont || flex space-between page-inline-padding">
+        <ul className="offer-cont || flex flex-center space-between page-inline-padding">
             <li className="offer-card">
                 <div className="top-icon">
                     <img className='position-center' src={barbell} alt="" />

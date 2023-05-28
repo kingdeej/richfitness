@@ -60,6 +60,7 @@ li{
     font-size: var(--fs-600);
     font-weight: var(--fw-700);
     color: var(--light-color);
+    z-index: 6;
 }
 h1{
     font-size: var(--fs-700);
@@ -137,6 +138,10 @@ h4{
     display: flex;
     align-items: center;
 }
+.flex-center{
+    display: flex;
+    align-items: center;
+}
 .primary-button{
     padding-inline: 30px;
     padding-block: 12px;
@@ -164,8 +169,11 @@ h4{
 }
 
 .plan-padding{
-    padding-inline: max(15%, 20px);
+    max-width: 400px;
+    width: 80%;
+    // padding-inline: max(5vw, 2px);
     padding-block: 3rem;
+    margin: auto;
 }
 .plan-header{
     padding-block: 20px;
@@ -219,49 +227,46 @@ nav{
         }
     }
     @media (max-width: 50em){
-        .nav-links{
+        .nav-links-wrapper{
             display: none;
         }
         .nav-icon-cont{
+            z-index: 10;
             display: block;
             position: relative;
             width: 22px;
             height: 18px;
-            
             .nav-icon{
                 position: absolute;
-                top: 5px;
                 transform-origin: center;
             }
-            // #nav-icon-1{
-            //     top: 0px;
-            // }
-            // #nav-icon-2{
-            //     bottom: 0px;
-            // }
+
+
         }
         .activate{
             #nav-icon-1{
-                animation: move 1s;
+                animation: move 250ms;
                 rotate: 45deg;
-                // margin: 0;
+                top: 5px;
                 @keyframes move {
                     0%{
                         rotate: 0deg;
+                        top: 0;
                     }
                     100%{
                         rotate: 45deg;
+                        top: 5px;
                     }
                 }
             }
             #nav-icon-2{
                 rotate: -45deg;
-                animation: moves 1s;
-                // margin-left: 0;
-                // margin-bottom: 0;
+                animation: moves 250ms;
+                bottom:5px;
                 @keyframes moves {
                     0%{
                         rotate: 0deg;
+                        bottom: 0;
                     }
                     100%{
                         rotate: -45deg;
@@ -271,12 +276,13 @@ nav{
         }
         .deactivate{
             #nav-icon-1{
-                animation: deactivate1 1s;
+                animation: deactivate1 250ms;
                 top: 0;
                 rotate: 0deg;
                 @keyframes deactivate1 {
                     0%{
                         rotate: 45deg;
+                        top: 5px;
                     }
                     100%{
                         top: 0;
@@ -285,26 +291,44 @@ nav{
                 }
             }
             #nav-icon-2{
-                animation: deactivate2 1s;
+                animation: deactivate2 250ms;
                 rotate: 0deg;
+                bottom: 0;
                 @keyframes deactivate2 {
                     0%{
                         rotate: -45deg;
+                        bottom: 5px;
                     }
                     100%{
                         rotate: 0deg;
-                        margin-bottom: 0;
+                        bottom: 0;
                     }
                 }
             }
         }
+        .nav-links{
+            position: absolute;
+            right: 0;
+            background-color: var(--primary-bg);
+            top: 0;
+            width: max(250px, 60vw);
+            height: 70vh;
+            z-index: 5;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 50px;
 
+        }
     }
 }
 
 .hero{
     background: conic-gradient(from 180deg at 50% 50%, #121126 -76.88deg, #190840 73.13deg, #121126 283.13deg, #190840 433.12deg);;
-    height: 100svh;
+    height: 110svh;
+    position: relative;
     .hero-wrapper{
         height: 80%;
         position: relative;
@@ -324,7 +348,7 @@ nav{
             position: absolute; 
             inset: 0;
             margin:100px auto;
-            max-width: 640px;
+            width: min(640px, 60vw);
             aspect-ratio: 1.42;
             margin-right: 0;
             background: var(--mid-color);
@@ -336,6 +360,11 @@ nav{
                 width: 100%;
                 height: 100%;
                 
+            }
+        }
+        @media (max-width: 50em){
+            .right-hero{
+                display: none;
             }
         }
         .hero-back-img{
@@ -356,6 +385,7 @@ nav{
     .goals-cont{
         flex-wrap: wrap;
         gap: 30px;
+        justify-content: center;
         li{
             background: var(--light-color);
             width: 268px;
@@ -417,8 +447,11 @@ nav{
         gap: 25px;
         li{
             background: var(--light-color);
+            border-radius: 10px;
         }
+        
         .left-cont{
+            overflow: hidden;
             h4{
                 text-align: center;
                 margin-bottom: 2rem;
@@ -451,10 +484,49 @@ nav{
             }
             h3{
                 color: var(--dark-color);
-
+                width: 170px;
+                padding-bottom: 0;
             }
         }
 
+    }
+    @media (max-width: 50em){
+        .plans-cont{
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 450px; 
+            .right-cont{
+                grid-row: 1;
+                .plan-list-cont{
+                    overflow: scroll;
+                    flex-direction: row;
+                    scroll-snap-align: 2;
+                    .plan-item{
+                        text-align: center;
+                        padding-inline: 5%;
+                        border-radius: 10px;
+                        position: relative;
+                        p{
+                            z-index: 2;
+                            width: 100%;
+                        }
+                        span{
+                            background-color: var(--mid-color);
+                            position: absolute;
+                            margin: auto;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                        }
+                        .active{
+                            background-color: var(--secondary-acc);
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
 
 }
@@ -485,10 +557,6 @@ nav{
 
             }
         }
-        // .left-right{
-        //     .social-links{
-        //         gap: 0px;
-        //     }
-        // }
+
     }
 }
