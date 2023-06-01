@@ -4,6 +4,7 @@ import navIcon from '../images/icons/nav-icon.svg'
 function Nav() {
   const [hide, setHide] = useState('')
   const [active, setActive] = useState('deactivate')
+  const [navClose, setNavClose] = useState('nav-close')
   function toggle(){
     if (hide === 'hide') {
       setHide('')
@@ -27,6 +28,7 @@ function Nav() {
                 <img src={navIcon} id='nav-icon-1' className={`nav-icon ${hide}`} alt="nav-icon" />
                 <img src={navIcon} id='nav-icon-2' className={`nav-icon ${hide}`} alt="nav-icon" />
               </div>
+              <div onClick={toggle} className={`${navClose} ${hide}`}></div>
               <div className={`nav-links-wrapper ${hide}`}>
                 <ul className={`nav-links || flex`}>
                   <li><a href="#" className="nav-link">Programs</a></li>

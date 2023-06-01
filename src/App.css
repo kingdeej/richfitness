@@ -201,8 +201,9 @@ h4 {
 
 .acc-line {
   position: relative;
-  margin-inline: auto;
-  width: 150px;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .acc-line::after {
@@ -210,7 +211,8 @@ h4 {
   position: absolute;
   width: 40px;
   height: 2px;
-  bottom: 0;
+  bottom: -3px;
+  border-radius: 5px;
   background: var(--secondary-acc);
   left: -10px;
 }
@@ -242,9 +244,20 @@ nav .nav-links .nav-link:hover::after {
   width: 100%;
   transition: 250ms;
 }
+nav .nav-close {
+  display: none;
+}
 @media (max-width: 50em) {
   nav .nav-links-wrapper {
     display: none;
+  }
+  nav .nav-close {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
   }
   nav .nav-icon-cont {
     z-index: 10;
@@ -317,7 +330,7 @@ nav .nav-links .nav-link:hover::after {
     }
   }
   nav .nav-links {
-    position: absolute;
+    position: fixed;
     right: 0;
     background-color: var(--primary-bg);
     top: 0;
@@ -486,7 +499,6 @@ nav .nav-links .nav-link:hover::after {
 }
 .plans .plans-cont .right-cont h3 {
   color: var(--dark-color);
-  width: 170px;
   padding-bottom: 0;
 }
 @media (max-width: 50em) {
@@ -542,6 +554,7 @@ nav .nav-links .nav-link:hover::after {
 .footer .footer-cont a, .footer .footer-cont p {
   font-size: var(--fs-200);
   color: var(--light-color);
+  margin-bottom: 10px;
 }
 .footer .footer-cont .contact {
   margin-bottom: 50px;
