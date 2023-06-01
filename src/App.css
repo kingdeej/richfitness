@@ -343,6 +343,15 @@ nav .nav-close {
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    animation: navEnter 250ms;
+  }
+  @keyframes navEnter {
+    0% {
+      right: -60vw;
+    }
+    100% {
+      right: 0px;
+    }
   }
 }
 
